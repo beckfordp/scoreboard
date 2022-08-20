@@ -16,7 +16,7 @@ class ScoreboardTest {
         List<Match> matches = new ArrayList<>();
         Scoreboard sb = new Scoreboard(matches);
 
-        sb.startGame(new Match("Mexico", "Canada");
+        sb.startGame(new Match("Mexico", "Canada"));
         assertEquals(1, sb.matches.size());
     }
 
