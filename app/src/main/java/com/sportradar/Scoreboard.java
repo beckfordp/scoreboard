@@ -17,4 +17,8 @@ public class Scoreboard {
         this.matches.add(aMatch);
         return aMatch;
     }
+
+    public void finishGame(Match aGame) {
+        this.matches.remove(aGame);
+    }
 }
