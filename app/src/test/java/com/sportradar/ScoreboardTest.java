@@ -23,48 +23,48 @@ class ScoreboardTest {
     }
 
     @Test
-    void canStartAGame() {
+    void canStartAMatch() {
         List<Match> matches = new ArrayList<>();
         Scoreboard sb = new Scoreboard(matches);
 
-        sb.startGame(new Match("Mexico", "Canada"));
+        sb.startMatch(new Match("Mexico", "Canada"));
         assertEquals(1, sb.matches.size());
     }
 
     @Test
-    void newGameHasScoreOfNilNil() {
+    void newMatchHasScoreOfNilNil() {
         Scoreboard sb = new Scoreboard();
-        Match aGame =  sb.startGame(new Match("Mexico", "Canada"));
-        assertEquals(new Score(0, 0), aGame.score());
+        Match aMatch =  sb.startMatch(new Match("Mexico", "Canada"));
+        assertEquals(new Score(0, 0), aMatch.score());
     }
 
     @Test
     void canFindMatchInProgress() {
         Scoreboard sb = new Scoreboard();
-        Match expected = sb.startGame(new Match("Mexico", "Canada"));
-        assertEquals(expected, sb.findGame(expected));
+        Match expected = sb.startMatch(new Match("Mexico", "Canada"));
+        assertEquals(expected, sb.findMatch(expected));
     }
 
     @Test
     void willThrowExceptionIfMatchMissing() {
         Scoreboard sb = new Scoreboard();
-        assertThrows(MatchMissingException.class, () -> sb.findGame(new Match("Mexico", "Canada")));
+        assertThrows(MatchMissingException.class, () -> sb.findMatch(new Match("Mexico", "Canada")));
     }
 
     @Test
     void canUpdateMatchScore() {
         Scoreboard sb = new Scoreboard();
-        Match aGame =  sb.startGame(new Match("Mexico", "Canada"));
-        aGame.updateScore(0, 5);
-        assertEquals(new Score(0, 5), aGame.score());
+        Match aMatch =  sb.startMatch(new Match("Mexico", "Canada"));
+        aMatch.updateScore(0, 5);
+        assertEquals(new Score(0, 5), aMatch.score());
     }
 
     @Test
     void canFinishMatchInProgress() {
         Scoreboard sb = new Scoreboard();
-        Match aGame =  sb.startGame(new Match("Mexico", "Canada"));
+        Match aMatch =  sb.startMatch(new Match("Mexico", "Canada"));
         assertEquals(1, sb.matches.size());
-        sb.finishGame(aGame);
+        sb.finishMatch(aMatch);
         assertEquals(0, sb.matches.size());
     }
 }

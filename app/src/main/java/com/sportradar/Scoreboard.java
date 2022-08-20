@@ -13,16 +13,16 @@ public class Scoreboard {
         this.matches = new ArrayList<>();
     }
 
-    public Match startGame(Match aMatch) {
+    public Match startMatch(Match aMatch) {
         this.matches.add(aMatch);
         return aMatch;
     }
 
-    public void finishGame(Match aGame) {
-        this.matches.remove(aGame);
+    public void finishMatch(Match aMatch) {
+        this.matches.remove(aMatch);
     }
 
-    public Match findGame(Match aMatch) {
+    public Match findMatch(Match aMatch) {
         Optional<Match> found = matches.stream().filter(m -> m.equals(aMatch)).findAny();
         if (found.isPresent()) { return found.get(); } else { throw new MatchMissingException(); }
     }
