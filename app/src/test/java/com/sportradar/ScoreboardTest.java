@@ -10,8 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 // TODO Add README
-// TODO Disable display summary
-// TODO T: Duplicate matches?
+// Tidy up code ready for submission
 
 class ScoreboardTest {
     
