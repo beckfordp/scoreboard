@@ -8,8 +8,7 @@ import static com.sportradar.Team.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-// TODO R: Teams as strings, introduce Type
-
+// TODO: T display summary
 
 class ScoreboardTest {
     
@@ -70,5 +69,17 @@ class ScoreboardTest {
         Scoreboard sb = new Scoreboard();
         assertThrows(MatchMissingException.class,
                      () -> sb.finishMatch(new Match(Mexico, Canada)));
+    }
+
+    @Test // @Disabled  // for debugging
+    void CanDisplaySummary() {
+        Scoreboard sb = new Scoreboard(new ArrayList<>(Arrays.asList(
+            new Match(Mexico, Canada).updateScore(0, 5),
+            new Match(Spain, Brazil).updateScore(10, 2),
+            new Match(Germany, France).updateScore(2, 2),
+            new Match(Uruguay, Italy).updateScore(6, 6),
+            new Match(Argentina, Australia).updateScore(3, 1))));
+
+        sb.summary().forEach(m -> System.out.println(m));
     }
 }

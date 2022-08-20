@@ -16,7 +16,8 @@ public class Match {
         return score;
     }
 
-    public void updateScore(int homeScore, int awayScore) {
+    public Match updateScore(int homeScore, int awayScore) {
         score =  new Score(homeScore, awayScore);
+        return this;
     }
 }
