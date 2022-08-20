@@ -1,5 +1,6 @@
 package com.sportradar;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -8,7 +9,9 @@ import static com.sportradar.Team.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-// TODO T: Order summary
+// TODO Add README
+// TODO Disable display summary
+// TODO T: Duplicate matches?
 
 class ScoreboardTest {
     
@@ -33,6 +36,16 @@ class ScoreboardTest {
         Match aMatch =  sb.startMatch(new Match(Mexico, Canada));
         assertEquals(new Score(0, 0), aMatch.score());
     }
+
+    @Test
+    void willThrowExceptionOnAttemptToStartMatchTwice() {
+        List<Match> matches = new ArrayList<>( Arrays.asList(new Match(Mexico, Canada)));
+        Scoreboard sb = new Scoreboard(matches);
+
+        assertThrows(MatchInProgressException.class,
+                     () ->  sb.startMatch(new Match(Mexico, Canada)));
+    }
+
 
     @Test
     void canFindMatchInProgress() {
@@ -72,7 +85,7 @@ class ScoreboardTest {
     }
 
     @Test
-    void canReturnMatchSummariesInCorrectOrder() {
+    void canReturnSummaryInCorrectOrder() {
         List<Match> matches = new ArrayList<>(Arrays.asList(
             new Match(Mexico, Canada).updateScore(0, 5),
             new Match(Spain, Brazil).updateScore(10, 2),
@@ -89,7 +102,7 @@ class ScoreboardTest {
             new Match(Germany, France).updateScore(2, 2))), sb.summary());
     }
 
-    @Test // @Disabled  // for debugging
+    @Disabled // for debugging
     void CanDisplaySummary() {
         Scoreboard sb = new Scoreboard(new ArrayList<>(Arrays.asList(
             new Match(Mexico, Canada).updateScore(0, 5),
