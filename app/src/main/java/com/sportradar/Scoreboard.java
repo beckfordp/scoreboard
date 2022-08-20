@@ -13,7 +13,8 @@ public class Scoreboard {
         this.matches = new ArrayList<>();
     }
 
-    public void startGame(Match aMatch) {
+    public Match startGame(Match aMatch) {
         this.matches.add(aMatch);
+        return aMatch;
     }
 }
