@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 // TODO R: Game or Match, which is it?
 // TODO R: Teams as strings, introduce Type
 // TODO R: Score as Tuple not possible... Introduce Score class
-// TODO T: can finish game in progress
+// TODO T: can update match score
 
 class ScoreboardTest {
     @Test
@@ -32,7 +32,7 @@ class ScoreboardTest {
     void newGameHasScoreOfNilNil() {
         Scoreboard sb = new Scoreboard();
         Match aGame =  sb.startGame(new Match("Mexico", "Canada"));
-        assertEquals(new ArrayList<>(Arrays.asList(0, 0)), aGame.score());
+        assertEquals(new Score(0, 0), aGame.score());
     }
 
     @Test
