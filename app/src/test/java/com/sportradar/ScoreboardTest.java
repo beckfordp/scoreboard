@@ -7,11 +7,9 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-// TODO R: Game or Match, which is it?
 // TODO R: Teams as strings, introduce Type
 // TODO T: can update match score
-// TODO T: find Match in progress inorder to update score
-// TODO T: throw exception if match missing on find
+// TODO R: find Match in progress inorder to update score
 // TODO T: throw exception if match missing on finish
 
 
@@ -66,5 +64,12 @@ class ScoreboardTest {
         assertEquals(1, sb.matches.size());
         sb.finishMatch(aMatch);
         assertEquals(0, sb.matches.size());
+    }
+
+    @Test
+    void willThrowExceptionOnAtemptToFinishMissingMatch() {
+        Scoreboard sb = new Scoreboard();
+        assertThrows(MatchMissingException.class,
+                     () -> sb.finishMatch(new Match("Mexico", "Canada")));
     }
 }
