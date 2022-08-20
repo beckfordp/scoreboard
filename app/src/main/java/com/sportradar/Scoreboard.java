@@ -19,7 +19,8 @@ public class Scoreboard {
     }
 
     public void finishMatch(Match aMatch) {
-        this.matches.remove(aMatch);
+        Match finishedMatch = findMatch(aMatch);
+        matches.remove(finishedMatch);
     }
 
     public Match findMatch(Match aMatch) {
