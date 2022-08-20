@@ -4,18 +4,20 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Scoreboard {
+    
+    public Scoreboard() {
+        this.matches = new ArrayList<>();
+    }
+
     protected List<Match> matches;
 
     public Scoreboard(List<Match> matches) {
         this.matches = matches;
     }
 
-    public Scoreboard() {
-        this.matches = new ArrayList<>();
-    }
-
     public Match startMatch(Match aMatch) {
-        this.matches.add(aMatch);
+        if (matches.contains(aMatch)) throw new MatchInProgressException();
+        matches.add(aMatch);
         return aMatch;
     }
 
