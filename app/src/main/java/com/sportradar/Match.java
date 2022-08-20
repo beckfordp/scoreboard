@@ -20,4 +20,9 @@ public class Match {
         score =  new Score(homeScore, awayScore);
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "" + homeTeam + " " + score.getHomeScore() + " - " + awayTeam + " " + score.getAwaySAcore();
+    }
 }

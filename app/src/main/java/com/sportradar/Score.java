@@ -23,6 +23,14 @@ public class Score {
         return homeScore == score.homeScore && awayScore == score.awayScore;
     }
 
+    public int getHomeScore() {
+        return homeScore;
+    }
+
+    public int getAwaySAcore() {
+        return homeScore;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(homeScore, awayScore);
