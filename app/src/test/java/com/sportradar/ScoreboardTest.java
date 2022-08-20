@@ -8,7 +8,7 @@ import static com.sportradar.Team.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-// TODO: T display summary
+// TODO T: Order summary
 
 class ScoreboardTest {
     
@@ -69,6 +69,24 @@ class ScoreboardTest {
         Scoreboard sb = new Scoreboard();
         assertThrows(MatchMissingException.class,
                      () -> sb.finishMatch(new Match(Mexico, Canada)));
+    }
+
+    @Test
+    void canReturnMatchSummariesInCorrectOrder() {
+        List<Match> matches = new ArrayList<>(Arrays.asList(
+            new Match(Mexico, Canada).updateScore(0, 5),
+            new Match(Spain, Brazil).updateScore(10, 2),
+            new Match(Germany, France).updateScore(2, 2),
+            new Match(Uruguay, Italy).updateScore(6, 6),
+            new Match(Argentina, Australia).updateScore(3, 1)));
+
+        Scoreboard sb = new Scoreboard(matches);
+        assertEquals(new ArrayList<>(Arrays.asList(
+            new Match(Uruguay, Italy).updateScore(6, 6),
+            new Match(Spain, Brazil).updateScore(10, 2),
+            new Match(Mexico, Canada).updateScore(0, 5),
+            new Match(Argentina, Australia).updateScore(3, 1),
+            new Match(Germany, France).updateScore(2, 2))), sb.summary());
     }
 
     @Test // @Disabled  // for debugging
