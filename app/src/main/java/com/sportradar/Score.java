@@ -11,6 +11,8 @@ public class Score {
         this.awayScore =awayScore;
     }
 
+    public Integer totalScore() { return homeScore + awayScore; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

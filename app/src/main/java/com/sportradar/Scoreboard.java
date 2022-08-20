@@ -1,6 +1,7 @@
 package com.sportradar;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Scoreboard {
     protected List<Match> matches;
@@ -29,6 +30,8 @@ public class Scoreboard {
     }
 
     public List<Match> summary() {
-        return matches;
+        List<Match> sortedList = this.matches.stream().sorted().collect(Collectors.toList());
+        Collections.reverse(sortedList);
+        return sortedList;
     }
 }
