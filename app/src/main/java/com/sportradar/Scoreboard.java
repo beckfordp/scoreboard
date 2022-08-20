@@ -24,6 +24,6 @@ public class Scoreboard {
 
     public Match findGame(Match aMatch) {
         Optional<Match> found = matches.stream().filter(m -> m.equals(aMatch)).findAny();
-        return found.get();
+        if (found.isPresent()) { return found.get(); } else { throw new MatchMissingException(); }
     }
 }
