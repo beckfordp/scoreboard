@@ -50,10 +50,10 @@ class ScoreboardTest {
     }
 
     @Test
-    void canUpdateMatchScore() {
+    void canUpdateScore() {
         Scoreboard sb = new Scoreboard();
         Match aMatch =  sb.startMatch(new Match("Mexico", "Canada"));
-        aMatch.updateScore(0, 5);
+        sb.findMatch(aMatch).updateScore(0, 5);
         assertEquals(new Score(0, 5), aMatch.score());
     }
 
