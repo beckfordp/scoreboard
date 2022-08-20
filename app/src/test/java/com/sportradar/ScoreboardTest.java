@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 // TODO R: Game or Match, which is it?
 // TODO R: Teams as strings, introduce Type
 // TODO T: can update match score
-// TODO T: find Match in Scoreboard inorder to update score
+// TODO T: find Match in progress inorder to update score
 
 class ScoreboardTest {
     @Test
@@ -33,6 +33,13 @@ class ScoreboardTest {
         Scoreboard sb = new Scoreboard();
         Match aGame =  sb.startGame(new Match("Mexico", "Canada"));
         assertEquals(new Score(0, 0), aGame.score());
+    }
+
+    @Test
+    void canFindMatchInProgress() {
+        Scoreboard sb = new Scoreboard();
+        Match expected = sb.startGame(new Match("Mexico", "Canada"));
+        assertEquals(expected, sb.findGame(expected));
     }
 
     @Test
