@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 // TODO R: Teams as strings, introduce Type
 // TODO T: can update match score
 // TODO T: find Match in progress inorder to update score
+// TODO T: throw exception if match missing
 
 class ScoreboardTest {
     @Test

@@ -21,4 +21,9 @@ public class Scoreboard {
     public void finishGame(Match aGame) {
         this.matches.remove(aGame);
     }
+
+    public Match findGame(Match aMatch) {
+        Optional<Match> found = matches.stream().filter(m -> m.equals(aMatch)).findAny();
+        return found.get();
+    }
 }
