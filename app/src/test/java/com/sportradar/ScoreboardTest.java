@@ -9,9 +9,6 @@ import static com.sportradar.Team.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-// TODO Add README
-// Tidy up code ready for submission
-
 class ScoreboardTest {
     
     @Test
@@ -44,7 +41,6 @@ class ScoreboardTest {
         assertThrows(MatchInProgressException.class,
                      () ->  sb.startMatch(new Match(Mexico, Canada)));
     }
-
 
     @Test
     void canFindMatchInProgress() {
@@ -101,7 +97,8 @@ class ScoreboardTest {
             new Match(Germany, France).updateScore(2, 2))), sb.summary());
     }
 
-    @Disabled // for debugging
+    @Disabled
+    @Test // for debugging
     void CanDisplaySummary() {
         Scoreboard sb = new Scoreboard(new ArrayList<>(Arrays.asList(
             new Match(Mexico, Canada).updateScore(0, 5),

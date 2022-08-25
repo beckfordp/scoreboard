@@ -23,7 +23,7 @@ public class Match  implements Comparable<Match> {
 
     @Override
     public String toString() {
-        return "" + homeTeam + " " + score.getHomeScore() + " - " + awayTeam + " " + score.getAwaySAcore();
+        return "" + homeTeam + " " + score.getHomeScore() + " - " + awayTeam + " " + score.getAwayScore();
     }
 
     @Override

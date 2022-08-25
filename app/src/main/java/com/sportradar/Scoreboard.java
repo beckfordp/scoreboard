@@ -4,12 +4,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Scoreboard {
-    
+    protected List<Match> matches;
+
     public Scoreboard() {
         this.matches = new ArrayList<>();
     }
-
-    protected List<Match> matches;
 
     public Scoreboard(List<Match> matches) {
         this.matches = matches;
